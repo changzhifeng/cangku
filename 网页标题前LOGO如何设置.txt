@@ -1,0 +1,9 @@
+网页标题前面的logo怎么设置：
+	首先要选好一张准备作为logo的图片，然后将其转化为.ico格式。给大家分享一个在线转.ico的网站：http://cn.faviconico.org/
+
+	将图片转化完成后下载到本地。将其放入你的web项目中。
+
+	然后在HTML文件的<head></head>标签内，插入一行代码：
+		<link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon"/>//href的值为图片的路径。
+		
+注意：之前有网友说logo只能命名为favicon.ico是不正确的。只要保证logo的后缀名为“.ico”（不能使用中文命名），并且在上面的代码中正确引用（href正确）就可以实现此功能。
