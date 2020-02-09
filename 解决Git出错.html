@@ -1,0 +1,31 @@
+Git学习篇之git remote add origin错误
+一、
+提示出错信息：fatal: remote origin already exists.
+解决办法如下：
+
+    1、先输入$ git remote rm origin
+
+    2、再输入$ git remote add origin git@github.com:djqiang/gitdemo.git 就不会报错了！
+
+    3、如果输入$ git remote rm origin 还是报错的话，error: Could not remove config section 'remote.origin'. 我们需要修改gitconfig文件的内容
+
+    4、找到你的github的安装路径，我的是C:\Users\ASUS\AppData\Local\GitHub\PortableGit_ca477551eeb4aea0e4ae9fcd3358bd96720bb5c8\etc
+
+    5、找到一个名为gitconfig的文件，打开它把里面的[remote "origin"]那一行删掉就好了！
+
+二、
+提示出错消息：
+Warning: Permanently added the RSA host key for IP address '13.250.177.223' to the list of known hosts.                                         To github.com:changzhifeng/remoteRepo.git
+ ! [rejected]        master -> master (fetch first)
+error: failed to push some refs to 'git@github.com:changzhifeng/remoteRepo.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+原因：
+之所以出现这个原因，是因为我在线上生成、编辑了README.md文件，而本地代码文件中不包含它，所以线上线下就对不上了。
+解决：将线上、线下代码进行合并
+git pull --rebase origin master
+然后再进行push
+git push -u origin master
