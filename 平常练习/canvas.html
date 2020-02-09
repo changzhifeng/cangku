@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<img id="scream" src="./photos/img_the_scream.jpg" height="277" width="220" alt="">
+	<canvas id="myCanvas" style="border:1px solid gray;">您的浏览器不支持 HTML5 canvas 标签</canvas>
+	<script type="text/javascript">
+	var c = document.getElementById('myCanvas');
+	var img = document.getElementById('scream');
+	var ctx = c.getContext('2d');
+	// 画矩形
+	// ctx.fillStyle = "#FF0000";
+	// ctx.fillRect(30,30,150,75);//绘制一个填充的矩形
+
+	// 清除指定的矩形区域，然后这块区域会变的完全透明
+	// ctx.clearRect(40, 40, 80, 35)//清除指定的矩形区域，然后这块区域会变的完全透明。
+
+	// 绘制一个矩形的边框
+	// ctx.fillStyle = "#FF0000";
+	// ctx.strokeRect(30,30,150,75);//绘制一个矩形的边框
+
+	// 画对角线
+	// ctx.moveTo(0,0);//定义线条开始坐标
+	// ctx.lineTo(300,150);//定义线条结束坐标
+	// ctx.moveTo(300,0);
+	// ctx.lineTo(0,150);
+	// ctx.moveTo(0,75);
+	// ctx.lineTo(300,75);
+	// ctx.moveTo(150,0);
+	// ctx.lineTo(150,150);
+
+	// 画圆
+	// ctx.beginPath();
+	// ctx.arc(50,50,50,0,2*Math.PI);
+	// ctx.stroke();//开始绘制线条
+
+	// 画实心文本
+	// ctx.font = '30px Arial';
+	// ctx.fillText('Hello World!',10,50);
+
+	// 画空心文本
+	// ctx.font = '30px Arial';
+	// ctx.strokeText("Hello World!",10,50);
+
+	// 线性渐变
+	// var grd = ctx.createLinearGradient(0,0,150,0);//创建线条渐变
+	// grd.addColorStop(0,'red');//指定颜色停止，参数用坐标来描述，可以是0至1
+	// grd.addColorStop(1,'blue');//指定颜色停止，参数用坐标来描述，可以是0至1
+	// ctx.fillStyle = grd;//填充渐变
+	// ctx.fillRect(20,20,180,75);
+	
+	// 径向渐变
+	// var grd = ctx.createRadialGradient(75,50,5,90,60,100);//创建一个径向/圆渐变
+	// grd.addColorStop(0,'orange');//指定颜色停止，参数用坐标来描述，可以是0至1
+	// grd.addColorStop(1,'green');//指定颜色停止，参数用坐标来描述，可以是0至1
+	// ctx.fillStyle = grd;//填充渐变
+	// ctx.fillRect(10,10,150,80);
+
+	// 把一幅图像放到画布上
+	// img.onload = function(){
+	// 	ctx.drawImage(img,10,10);
+	// }
+
+	// 绘制三角形
+	// ctx.beginPath();
+	// ctx.moveTo(50,50);
+	// ctx.lineTo(150,50);
+	// ctx.lineTo(150,150);
+	// ctx.fillStyle = "rgba(200,0,0,.5)";
+	// ctx.fill();
+
+	// 绘制描边三角形
+	// ctx.beginPath();
+	// ctx.moveTo(50,50);
+	// ctx.lineTo(150,50);
+	// ctx.lineTo(150,150);
+	// ctx.fillStyle = "rgba(200,0,0,.5)";
+	// ctx.closePath();
+	// ctx.stroke();
+
+	// 绘制圆弧
+	ctx.beginPath();
+	ctx.arc(50,50,50,0,Math.PI/2,false);
+	ctx.stroke();
+	</script>
+</body>
+</html>

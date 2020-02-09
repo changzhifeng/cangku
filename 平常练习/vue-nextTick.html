@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<button @click="testClick" ref="aa" id="dt">{{testMsg}}</button>
+	</div>
+	<script>
+	var vm = new Vue({
+		data(){
+			return {
+				testMsg: "原始值"
+			}
+		},
+		methods:{
+			testClick(){
+				var that = this;
+				that.testMsg = "数据更新";
+				var domTxt = document.getElementById('dt').innerText;
+				console.log(domTxt);
+				if(domTxt=="原始值"){
+					console.log('文本data修改后dom内容没立即更新');
+				}else{
+					console.log('文本data修改后dom内容被马上更新');
+				}
+				//console.log(this.$refs.aa.innerText);//this.$refs.aa-输出指定DOM，输出原始值
+				// that.$nextTick(function(){//在修改数据之后使用$nextTick，则可以在回调中获取更新后的DOM
+				// 	console.log(this.$refs.aa.innerText);//输出修改后的值
+				// })
+			}
+		},
+		created(){
+			// var that = this;
+			// // 不使用this.$nextTick()方法会报错
+			// that.$nextTick(function(){
+			// 	that.$refs.aa.innerHTML = "created钩子函数执行"//写入到DOM元素中
+			// })
+		}
+	})
+	vm.$mount("#app");
+	</script>
+</body>
+</html>

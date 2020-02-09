@@ -1,0 +1,19 @@
+ViewModel是vue.js的核心，它是一个vue实例。
+vm中有DOM Listeners和Data Bindings两个工具，他们是双向绑定的关键。
+vm监听DOM，当数据改变的时候，vm会自动更新视图
+从View侧看，ViewModel中的Dom Listeners会帮我们监听页面上DOM元素的变化，如果有变化，则更改Model中的数据。
+从Model侧看，当我们更新model中的数据时，Data Bindings工具会帮我们更新页面中的DOM元素。
+
+Vue-cli工程项目中各个文件夹文件的作用分析：
+build文件夹：存放webpack的相关配置以及脚本文件，在实际开发过程中只会偶尔用到webpack.base.conf.js，配置less、babel等编译器。
+config文件夹：常用到此文件下的index.js配置开发环境的端口号、是否开启热加载、或者设置生产环境的静态资源相对路径、是否开启gzip压缩、npm run build命令打包成静态资源的名称和路径等。
+node_modules文件夹：存放npm install命令下载的开发环境和生产环境的各种依赖。
+src文件夹：里面存放工程项目的源码以及资源，包括页面图片，路由组件，路由配置，vuex，入口文件等。
+.babelrc ES6语法编译配置。
+.editorconfig 定义代码格式。
+.eslistrc.js ESLint文件，如需更改规则则在此文件添加。
+.eslintignore ESlint 检查忽略的文件。
+.gitignore git 上传需要忽略的文件。
+index.html 入口页面。
+package.json 项目基本信息。
+README.md 项目说明。

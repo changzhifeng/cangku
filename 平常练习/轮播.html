@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		/*样式重置*/
+		body{font-size: 12px; font-family: '微软雅黑';}
+		body,ul,p{margin: 0; padding: 0;}
+		a{text-decoration: none;}
+		li{list-style: none;}
+		img{border: none; vertical-align: top;}
+
+		/*公共样式*/
+		.fl{float: left;}
+		.fr{float: right;}
+		.clear{*zoom: 1;}
+		.clear:after{content: ''; display: block; clear: both;}
+
+		/*元素样式*/
+		.wrap_slide{width: 500px; margin: 0 auto; height: 300px; position: relative;}
+		ul{position: relative;}
+		li{position: absolute; opacity: 0; -webkit-transition: opacity linear .5s; -moz-transition: opacity linear .5s; -o-transition: opacity linear .5s; transition: opacity linear .5s;}
+		li.showCur{opacity: 1;}
+
+		.green,.black,.red,.yellow,.blue{width: 500px; height: 300px;}
+		.green{background-color: green;}
+		.black{background-color: black;}
+		.red{background-color: red;}
+		.yellow{background-color: yellow;}
+		.blue{background-color: blue;}
+
+		.main_btns{position: absolute; padding-right: 5px; left: 50%; bottom: 15px; margin-left: -52.5px;}
+		.main_btns span{display: inline-block; width: 15px; height: 15px; border-radius: 50%; margin-left: 5px; background-color: white; font-size: 0; float: left; cursor: pointer;}
+		.main_btns span.active{background-color: orange;}
+
+		#next,#prev{width: 50px; height: 50px; text-align: center; line-height: 50px;background-color: red; position: absolute; z-index: 666; bottom: 0; color: white; font-size: 2rem; cursor: pointer;}
+		#prev{left: 0;}
+		#next{right: 0;}
+		
+	</style>
+</head>
+<body>
+	<div class="wrap_slide clear">
+	<ul class="main_ul">
+		<li class="showCur"><a href="javascript:"><div class="green"></div></li>
+		<li><a href="javascript:"><div class="black"></div></a></li>
+		<li><a href="javascript:"><div class="red"></div></a></li>
+		<li><a href="javascript:"><div class="yellow"></div></a></li>
+		<li><a href="javascript:"><div class="blue"></div></a></li>
+	</ul>
+	<p class="main_btns">
+		<span class="active"></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+	</p>	
+	<div id="prev">&lt;</div>
+	<div id="next">&gt;</div>
+	</div>
+	<script>
+	function $(id){
+		return document.getElementById(id);
+	}
+	var btns = document.getElementsByClassName('main_btns')[0].getElementsByTagName('span');
+	var lists = document.getElementsByClassName('main_ul')[0].getElementsByTagName('li');
+	var initialSub = 0;
+	function isSame(initialSub){
+		for (var i = 0; i < lists.length; i++) {
+			btns[i].className = i == initialSub ? "active" : '';
+			lists[i].className = i == initialSub ? "showCur" : '';
+		};
+	}
+	for (var i = 0; i < btns.length; i++) {
+		(function(index){
+			btns[index].onclick = function(e){
+				isSame(index);
+				initialSub = index;
+			}
+		})(i)
+	};
+	function prevFn(){
+		initialSub--;
+		if(initialSub < 0){
+			initialSub = lists.length - 1;
+		}
+		isSame(initialSub);
+		// console.log(initialSub);
+	}
+	function nextFn(){
+		initialSub++;
+		if(initialSub > lists.length-1){
+			initialSub = 0;
+		}
+		isSame(initialSub);
+		// console.log(initialSub);
+	}
+	$("prev").onclick = prevFn;
+	$("next").onclick = nextFn;
+	var timer = null;
+	timer = setInterval(function(){
+		nextFn();
+	},2000);
+	var wrap_el = document.getElementsByClassName('wrap_slide')[0];
+	wrap_el.onmouseover = function(){
+		clearInterval(timer);
+		// console.log("鼠标进入停止轮播");
+	}
+	wrap_el.onmouseout = function(){
+		timer = setInterval(function(){
+			nextFn();
+		},2000);
+		// console.log("鼠标离开继续轮播");
+	}
+	</script>
+</body>
+</html>

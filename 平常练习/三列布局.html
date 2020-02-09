@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	*{padding: 0;margin: 0;}
+	.outer{
+		position: relative;
+		text-align: center;
+	}
+	.outer .left{
+		position: absolute;
+		width: 200px;
+		height: 150px;
+		left: 0;
+		top: 0;
+		background-color: orange;
+	}
+	.outer .middle{
+		height: 150px;
+		margin: 0 200px;
+		background-color: green;
+	}
+	.outer .right{
+		position: absolute;
+		width: 200px;
+		height: 150px;
+		right: 0;
+		top: 0;
+		background-color: gold;
+	}
+	.wrap{
+		height: 150px;
+		text-align: center;
+	}
+	.wrap .left{
+		float: left;
+		width: 200px;
+		height: 150px;
+		background-color: red;
+		margin-left: -100%;
+	}
+	.wrap .middle{
+		float: left;
+		width: 100%;
+		height: 150px;
+		background-color: blue;
+	}
+	.wrap .right{
+		float: left;
+		width: 200px;
+		height: 150px;
+		margin-left: -200px;
+		background-color: green;
+	}
+	.box{
+		height: 150px;
+		text-align: center;
+	}
+	.box .left{
+		float: left;
+		width: 200px;
+		height: 150px;
+		background-color: skyblue;
+	}
+	.box .middle{
+		height: 150px;
+		margin: 0 200px;
+		background-color: yellowgreen;
+	}
+	.box .right{
+		float: right;
+		width: 200px;
+		height: 150px;
+		background-color: pink;
+	}
+	img{
+		height: 100px;
+	}
+	.rTop{
+		width: 80px;
+		height: 80px;
+		text-align: center;
+		line-height: 80px;
+		font-family: 'Microsoft 雅黑';
+		font-size: 20px;
+		opacity: .6;
+		position: fixed;
+		right: 10px;
+		top: 90%;
+		display: none;
+	}
+	
+	.obox{
+		width: 130px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		/*white-space: nowrap;*/
+		background-color: red;
+		/*display: -webkit-box;*/
+		/*-webkit-line-clamp:3;*/
+		/*-webkit-box-orient:vertical;*/
+	}
+	
+	.ospan{
+		
+	}
+	</style>
+</head>
+<body>
+	<div class="outer">
+		<div class="left">
+			<p><1></p>
+		</div>
+		<div class="middle">
+			<p><2></p>
+		</div>
+		<div class="right">
+			<p><3></p>
+		</div>
+	</div>
+	<div class="wrap">
+		<div class="middle">
+			<p><2></p>
+		</div>
+		<div class="left">
+			<p><1></p>
+		</div>
+		<div class="right">
+			<p><3></p>
+		</div>
+	</div>
+	<div class="box">
+		<div class="left">
+			<p><1></p>
+		</div>
+		<div class="right">
+			<p><3></p>
+		</div>
+		<div class="middle">
+			<p><2></p>
+		</div>
+	</div>
+	<div class="obox">
+		jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjsssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+	</div>
+	<div class="rTop" id="rTop">返回顶部</div>
+	<script>
+	var rTop = document.getElementById('rTop');
+	var viewH = document.documentElement.clientHeight || document.body.clientHeight;//获取浏览器 窗口可视区域的高度
+	var isTop = true;//判断是否到达顶部
+	var timer = null;//定义一个定时器
+	window.onscroll = function(){
+		var osTop = document.documentElement.scrollTop || document.body.scrollTop;//获取滚动条的滚动高度
+		if(osTop > 0){//如果滚动高度大于可视区域高度，显示返回顶部按钮
+			rTop.style.display = 'block';
+		}else{//如果滚动高度小于可视区域高度，隐藏返回顶部按钮
+			rTop.style.display = 'none';
+		}
+		if(!isTop){//判断当点击返回顶部按钮时，滚动条回滚过程中，，若手动滚动滚动条，清除定时器
+			window.clearInterval(timer);
+		}
+		isTop = false;
+	}
+	rTop.onclick = function(){
+			timer = setInterval(function(){
+			var osTop = document.documentElement.scrollTop || document.body.scrollTop;//获取滚动条高度
+			var speed = Math.floor(-osTop / 10);//用来设置速度差，产生缓动的效果
+			document.documentElement.scrollTop = document.body.scrollTop = osTop + speed;
+			isTop = true;//阻止滚动事件清除定时器
+			if(osTop == 0){
+				clearInterval(timer);
+			}
+		},30)
+	}
+	</script>
+</body>
+</html>

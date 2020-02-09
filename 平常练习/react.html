@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Hello World!</title>
+	<script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+	<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+	<!-- 生产环境中不建议使用 -->
+	<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+	<style type="text/css">
+		.red{
+			color: red;
+		}
+		td{
+			border: 1px solid;
+		}
+		.noborder{
+			border: transparent;
+		}
+		.box1{
+			width: 230px;
+			height: 230px;
+			background-color: skyblue;
+		}
+	</style>
+</head>
+<body>
+	<div id="example">
+		
+	</div>
+	<script type="text/babel">
+		const sayHello = (sex) =>{
+			if(sex=="男"){
+				return <div>
+					<b>欢迎你！先生！请你购买：</b>
+					<ul>
+						<li>刮胡刀</li>
+						<li>香烟</li>
+					</ul>
+				</div>
+			}else{
+				return <div>
+					<b>欢迎你！女士！请你购买：</b>
+					<ul>
+						<li>化妆品</li>
+						<li>香包</li>
+					</ul>
+				</div>
+			}
+		};
+		const player = (picName) => {
+			if(picName=='孙杨'){
+				return 'photos/timg.jpg'
+			}else{
+				return 'photos/sds.jpg'
+			}
+		};
+		var w = 200;
+		const liArr = [<p>哈哈</p>,<p>嘻嘻</p>,<p>乖乖</p>];
+		const jiujiu = () => {
+			const result = [];
+			for(var i = 1;i<=9;i++){
+				var temp = [];
+				for(var j = 1;j<=9;j++){
+					if(j <= i){
+						temp.push(<td key={j}>{i}*{j}={i*j}</td>);
+					}else{
+						temp.push(<td key={j} className='noborder'></td>)
+					}
+				}
+				result.push(<tr key={i}>{temp}</tr>);
+			}
+			return result;
+		}
+		function Simplecom({a=10000}){
+			return <h1>我爱你{a}年</h1>;
+		}
+		function ShowMain(){
+			return <section>
+				<div>广告</div>
+				<Simplecom></Simplecom>
+			</section>
+		}
+		class Compo1 extends React.Component {
+			constructor(props) {
+				super(props)
+				this.state = {
+					"a" : 100,
+					"show" : true,
+					"bgco": 'red',
+					"l": '100'
+				}
+			}
+			add(){
+				this.setState({
+					'a':this.state.a+1
+				})
+			}
+			setL(){
+				this.setState({
+					"l": this.refs.setL.value
+				})
+			}
+			render(){
+				console.log("我是render函数，我运行了");
+				const showBox = () => {
+					return this.state.show?<div className="box1" style={{"backgroundColor":this.state.bgco}}></div>:null;
+				}
+				return <div>
+					<button onClick={this.add.bind(this)}>按我加1</button>
+					<h1>{this.state.a}类定义组件</h1>
+					{showBox()}
+					<input type="text" id="inp2" ref="setL"/>
+					<input onClick={this.setL.bind(this)} type="button" value="添加长度" />
+					<div style={{"width":this.state.l+'px',"height":this.state.l+'px',"border":'1px solid red'}}></div>
+				</div>
+			}
+		}
+		ReactDOM.render(
+			<div>
+			<h1 className="red">Hello World!</h1>
+			{sayHello('女')}
+			<img src={player('孙杨')} width={w} />
+			<div>{liArr}</div>
+			<input type="text" id="inp" />
+			<label htmlFor="inp">label</label>
+			<table>
+				<tbody>
+					{jiujiu()}
+				</tbody>
+			</table>
+			<Simplecom a={34}></Simplecom>
+			<Simplecom a={123}></Simplecom>
+			<Simplecom a={3455}></Simplecom>
+			<Simplecom a={34444}></Simplecom>
+			<Simplecom></Simplecom>
+			<ShowMain></ShowMain>
+			<Compo1></Compo1>
+			</div>,
+			document.getElementById("example")
+		)
+	</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title></title>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<button-new title="title1" @clicknow="clickNow">
+			<h1>Hello!</h1>
+		</button-new>
+		<button-new title="title2">
+			<h1>Hello!</h1>
+		</button-new>
+	</div>
+	<script type="text/javascript">
+		Vue.component('button-new',{
+			props: ['title'],
+			data(){
+				return {
+					count: 0
+				}
+			},
+			template: '<div><button @click="changeCount">{{title}}：{{count}}</button><slot></slot></div>',
+			methods: {
+				changeCount(){
+					this.count++
+					this.$emit('clicknow',this.count)
+				}
+			}
+		})
+		var vm = new Vue({
+			el: '#app',
+			data(){
+				return {
+					
+				}
+			},
+			methods: {
+				clickNow(jieshou){
+					console.log(jieshou)
+				}
+			}
+		});
+	</script>
+</body>
+</html>

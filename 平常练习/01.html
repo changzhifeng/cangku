@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	.div1{
+		width: 100px;
+		height: 100px;
+		padding: 10px;
+		border: 1px solid red;
+	}
+	.div2{
+		width: 500px;
+		height: 500px;
+		margin: 20px;
+		border: 1px solid blue;
+		position: relative;
+	}
+	.sdiv{
+		width: 100px;
+		height: 100px;
+		border: 1px solid blue;
+		position: absolute;
+		left: 100px;
+		top: 100px;
+	}
+	.div3{
+		width: 600px;
+		height: 1000px;
+	}
+	</style>
+</head>
+<body>
+	<div class="div1" id="div1"></div>
+	<div class="div2" id="div2">
+		<div id="sdiv" class="sdiv"></div>
+	</div>
+	<div class="div3" id="div3"></div>
+	<script>
+	var div1 = document.getElementById('div1')
+	var div2 = document.getElementById('div2')
+	var sdiv = document.getElementById('sdiv')
+	var div3 = document.getElementById('div3')
+	var div1W = div1.offsetWidth
+	var div1H = div1.offsetHeight
+	console.log("div1的宽度为"+div1W+"px，div1的高度为"+div1H+"px。")
+	var sdivL = sdiv.offsetLeft
+	var sdivT = sdiv.offsetTop
+	var sdivP = sdiv.offsetParent
+	console.log(sdivL,sdivT,sdivP)
+	console.log(div2.offsetLeft)
+	console.log(sdiv.style.left)
+	console.log(document.body.scrollWidth)
+	console.log(document.body.scrollHeight)
+
+	window.onscroll = function(){
+		var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+		console.log(scrollTop)
+	}
+	
+	</script>
+</body>
+</html>

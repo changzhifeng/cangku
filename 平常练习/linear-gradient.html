@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	.box{
+		width: 200px;
+		height: 200px;
+		border: 1px solid #333;
+		background: -webkit-linear-gradient(top left,red,orange);
+		background: -moz-linear-gradient(top left,red,orange);
+		/*ie9以下不支持*/
+		background: -ms-linear-gradient(top left,red,orange);
+		background: linear-gradient(top left,red,orange);
+		/*ie9,ie8支持，ie7以下又不支持了*/
+		-ms-filter:"progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=red,endColorstr=blue)";
+		/*ie6 7下认识这个颜色*/
+		+background: green;
+	}
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+</body>
+</html>

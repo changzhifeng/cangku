@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>原生Ajax封装</title>
+</head>
+<body>
+	<script>
+		function loadXMLDoc() {
+			var xmlhttp;
+			if(window.XMLHttpRequest){
+				xmlhttp = new XMLHttpRequest();
+			}else{
+				xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			xmlhttp.onreadystatechange = function(){
+				if(xmlhttp.readyState==4 && xmlhttp.status==200){
+					var result = eval("("+xmlhttp.responseText+")");
+					console.log(result);
+				}
+			}
+			xmlhttp.open("POST","https://www.apiopen.top/novelApi",true);
+			xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+			xmlhttp.send();
+		}
+		loadXMLDoc();
+		// JS内置对象：
+		// 	Object String Array Function Date Global Boolean Math Number RegExp
+		// window对象
+		// 	navigation screen history location document frames
+	</script>
+</body>
+</html>
