@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="Keywords" content="content">
+	<meta name="Description" content="content">
+	<title>刘海屏内容适配特效</title>
+	<style>
+	*::-webkit-scrollbar{padding-left: 100px;}
+	body,ul{margin: 0;}
+	ul{padding-left: 10px;}
+	li{list-style: none;font-size: 16px;font-weight: bold;padding: 5px;}
+	.phone{width: 600px;height: 300px;border: 10px solid;margin: 100px auto 0;border-radius: 30px;position: relative;}
+	.content{width: 100%;height: 100%;overflow-x:hidden;overflow-y:scroll;}
+	.content ul{width: 100%;}
+	.content ul li+li{border-top: 1px solid #ccc}
+	.camera{width: 26px;height: 180px;background-color: #000;position: absolute;top: 60px;left: 0;border-radius: 0 30px 30px 0;}
+	</style>
+</head>
+<body>
+	<div class="phone">
+		<div class="content">
+			<ul>
+				<li>list1</li>
+				<li>list2</li>
+				<li>list3</li>
+				<li>list4</li>
+				<li>list5</li>
+				<li>list6</li>
+				<li>list7</li>
+				<li>list8</li>
+				<li>list9</li>
+				<li>list10</li>
+				<li>list11</li>
+				<li>list12</li>
+				<li>list13</li>
+				<li>list14</li>
+				<li>list15</li>
+				<li>list16</li>
+				<li>list17</li>
+				<li>list17</li>
+				<li>list17</li>
+				<li>list20</li>
+				<li>list21</li>
+				<li>list22</li>
+				<li>list23</li>
+				<li>list24</li>
+				<li>list25</li>
+				<li>list26</li>
+				<li>list27</li>
+				<li>list28</li>
+				<li>list29</li>
+				<li>list30</li>
+				<li>list1</li>
+				<li>list2</li>
+				<li>list3</li>
+				<li>list4</li>
+				<li>list5</li>
+				<li>list6</li>
+				<li>list7</li>
+				<li>list8</li>
+				<li>list9</li>
+				<li>list10</li>
+				<li>list11</li>
+				<li>list12</li>
+				<li>list13</li>
+				<li>list14</li>
+				<li>list15</li>
+				<li>list16</li>
+				<li>list17</li>
+				<li>list17</li>
+				<li>list17</li>
+				<li>list20</li>
+				<li>list21</li>
+				<li>list22</li>
+				<li>list23</li>
+				<li>list24</li>
+				<li>list25</li>
+				<li>list26</li>
+				<li>list27</li>
+				<li>list28</li>
+				<li>list29</li>
+				<li>list30</li>
+				<li>list1</li>
+				<li>list2</li>
+				<li>list3</li>
+				<li>list4</li>
+				<li>list5</li>
+				<li>list6</li>
+				<li>list7</li>
+				<li>list8</li>
+				<li>list9</li>
+				<li>list10</li>
+				<li>list11</li>
+				<li>list12</li>
+				<li>list13</li>
+				<li>list14</li>
+				<li>list15</li>
+				<li>list16</li>
+				<li>list17</li>
+				<li>list17</li>
+				<li>list17</li>
+				<li>list20</li>
+				<li>list21</li>
+				<li>list22</li>
+				<li>list23</li>
+				<li>list24</li>
+				<li>list25</li>
+				<li>list26</li>
+				<li>list27</li>
+				<li>list28</li>
+				<li>list29</li>
+				<li>list30</li>
+				<li>list1</li>
+				<li>list2</li>
+				<li>list3</li>
+				<li>list4</li>
+				<li>list5</li>
+				<li>list6</li>
+				<li>list7</li>
+				<li>list8</li>
+				<li>list9</li>
+				<li>list10</li>
+				<li>list11</li>
+				<li>list12</li>
+				<li>list13</li>
+				<li>list14</li>
+				<li>list15</li>
+				<li>list16</li>
+				<li>list17</li>
+				<li>list17</li>
+				<li>list17</li>
+				<li>list20</li>
+				<li>list21</li>
+				<li>list22</li>
+				<li>list23</li>
+				<li>list24</li>
+				<li>list25</li>
+				<li>list26</li>
+				<li>list27</li>
+				<li>list28</li>
+				<li>list29</li>
+				<li>list30</li>
+				<li>list1</li>
+				<li>list2</li>
+				<li>list3</li>
+				<li>list4</li>
+				<li>list5</li>
+				<li>list6</li>
+				<li>list7</li>
+				<li>list8</li>
+				<li>list9</li>
+				<li>list10</li>
+				<li>list11</li>
+				<li>list12</li>
+				<li>list13</li>
+				<li>list14</li>
+				<li>list15</li>
+				<li>list16</li>
+				<li>list17</li>
+				<li>list17</li>
+				<li>list17</li>
+				<li>list20</li>
+				<li>list21</li>
+				<li>list22</li>
+				<li>list23</li>
+				<li>list24</li>
+				<li>list25</li>
+				<li>list26</li>
+				<li>list27</li>
+				<li>list28</li>
+				<li>list29</li>
+				<li>list30</li>
+			</ul>
+		</div>
+		<div class="camera"></div>
+	</div>
+	<script>
+	/*
+	程序员的能力
+		1.做出项目的能力
+			复杂问题抽象化的能力
+			把项目分成若干个功能模块
+				逻辑步骤
+			1：设置两个基本参数
+				1.1：驼峰值 thresh：规定li元素的底边与camera元素的顶边之间的间距小于多少的时候开始发生偏移
+				1.2：最大偏移量 maxOffset：当li元素完全进入camera元素后li的偏移量
+			2：当移动li元素时获取两者间的差值并设置相应的偏移量
+				2.1：获取li元素和camera元素
+				2.2：获取两个的位置
+				2.3：计算两者的差距
+				2.4：根据差值计算li的偏移量
+				2.5：给li设置一个偏移量
+		2.拿什么来做的能力
+			语言 语法 原则 API三方类库()
+		3.怎么能够做的好
+			系统的原理 工具的原理
+	*/
+	~~function(){
+		var thresh = 20;//驼峰值
+		var maxOffset = 50;//最大偏移量
+		// 获取li元素和camera元素
+		var aLi = document.querySelectorAll("li");
+		var oCamera = document.querySelector(".camera");
+		var oContent = document.querySelector(".content");
+		var cameraPs = oCamera.getBoundingClientRect();// 网页获取一个元素边的距离的接口
+		~~function(){
+			oContent.onscroll = arguments.callee;
+			for(var item of aLi){
+				// for of数组里的每一个元素本身
+				// for in数组里每一个元素本身的下标
+				var itemPs = item.getBoundingClientRect();
+				var dft = itemPs.bottom-cameraPs.top;
+				var dfb = itemPs.bottom-cameraPs.bottom;
+				// li元素的底边与camera元素的顶边的差值
+				// -20<dft<20->|dft|<20->Math.abs(dft)<20
+				if(Math.abs(dft)<20){
+					item.style.transform="translateX("+lerp(0,50,cal(dft,20))+"px)";
+				}
+				else if(dft>20&&dfb<-20){
+					item.style.transform="translateX("+50+"px)";
+				}
+				else if(Math.abs(dfb)<20){
+					item.style.transform="translateX("+lerp(50,0,cal(dfb,20))+"px)";
+				}
+				else{
+					item.style.transform="translateX("+0+"px)";
+				}
+			}
+		}()
+	}()
+		
+		/****
+		*@param:插值算法
+		*@p1:初始状态
+		*@p2:结束状态
+		*@t:时间函数(0%,100%)
+		*返回p1到p2之间的状态
+		*/
+		/*
+		假设p1:100,p2:200
+		当t=0时，100+(200-100)*0=100为初始状态
+		当t=0时，100+(200-100)*0.5=150为中间状态
+		当t=0时，100+(200-100)*1=200为结束状态
+		*/
+		function lerp(p1,p2,t){
+			return p1+(p2-p1)*t;
+		}
+		/*
+		根据dft决定状态
+		dft -20->0-20
+		t   0 -> 0.5 -> 1
+		*/
+		function cal(dis,thr){
+			return (dis+thr)/(thr*2);
+			/*
+			thr:20;驼峰值->定值
+			dis:变量;-20->20发生变化
+			(-20+20)/(20*2)=0 当dis为 -20时，t=0。
+			(0+20)/(20*2)=0.5 当dis为 -20时，t=0.5。
+			(20+20)/(20*2)=1 当dis为 -20时，t=1。
+			*/
+		}
+
+	</script>
+</body>
+</html>

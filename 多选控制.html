@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>index</title>
+	<body>
+		<div class="phone">
+			<div><input type="checkbox" id="aCheckbox" value="全选"><label for="aCheckbox">全选</label></div>
+			<div class="oContent">
+				<ul>
+					<li><input type="checkbox" value="篮球" id="l"><label for="l">篮球</label></li>
+					<li><input type="checkbox" value="足球" id="z"><label for="z">足球</label></li>
+					<li><input type="checkbox" value="羽毛球" id="y"><label for="y">羽毛球</label></li>
+					<li><input type="checkbox" value="橄榄球" id="g"><label for="g">橄榄球</label></li>
+					<li><input type="checkbox" value="棒球" id="b"><label for="b">棒球</label></li>
+					<li><input type="checkbox" value="台球" id="t"><label for="t">台球</label></li>
+				</ul>
+			</div>
+		</div>
+	<script>
+	let aInput = document.getElementsByTagName('input');
+	let aCheckbox = document.getElementById('aCheckbox');
+	let allInp = Array.from(aInput);
+	aCheckbox.oninput = function(){
+		allInp.forEach(item=>{
+			item["checked"] = aCheckbox["checked"];
+		})
+	}
+	</script>
+	</body>
+</head>
+</html>
