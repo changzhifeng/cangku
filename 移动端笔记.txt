@@ -1,0 +1,42 @@
+设备像素（物理像素）/ css像素（逻辑像素）= 设备像素比（DPR）
+PPI像素密度（pixel per inch）：PPI翻译过来就是每英寸有多少个像素点（这里的像素指的是设备像素，即物理像素），说的直白点就是**像素密度**（pixel density），PPI的值越高，画质越好，看起来更有逼格。那么PPI是怎么计算出来的呢，看公式
+									↓
+					PPI=sqrt（横向²（pixel）+ 纵向²（pixel））/ 屏幕尺寸（inch）
+设备像素：设备的固定属性，出厂就有的，无法修改的。
+css像素：写在样式表中，设置的数据。
+width （device-width || value）
+user-scalable 是否允许缩放
+initial-scale 初始比例
+minimum-scale 最小缩放比例
+maximum-scale 最大缩放比例
+devicePixelRatio 像素比 DPR
+	↑↑→window.devicePixelRatio
+window下面的全局属性
+像素比是几，相当于放大几倍去显示。
+像素比越高，清晰度越高。
+
+PC端→ 一个css像素（逻辑像素）就是一个物理像素（设备像素），前提是在100%未缩放的情况下。如果缩放到200%，则一个设备独立像素等于2个设备像素。
+移动端→根据设备不同，有很大差异。
+	iPhone6/7/8（375*667）→像素比是2 ，说明一个css像素里面有两个物理像素
+
+移动端的默认样式清除
+body{
+	font-size:Helvetica;
+}
+body *{
+	-webbkit-text-size-adjust:100%;横竖屏字体变化
+	-webkit-user-select:none;去除用户选中
+}
+a,input,button{按下阴影
+	-webkit-tap-highlightcolor:rgba(0,0,0,0);
+}
+input,button{
+	border:none;
+	-moz-appearance：none;
+	-webkit-appearance:none;解决iOS上按钮的圆角问题
+	border-radius:0;解决iOS上输入框的圆角问题
+	outline:medium;去掉鼠标点击的默认黄色边框
+	background-color:transparent;
+}
+input框 去除ios端输入法首字母大写状态
+<input type="text"  autocapitalize="off" autocorrect="off">
