@@ -1,0 +1,51 @@
+/*禁止选中复制文本*/
+*{
+    user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+}
+/*单行文本溢出显示省略号*/
+p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    -ms-text-overflow: ellipsis;
+    white-space: nowrap;
+}
+/*flex布局兼容*/
+#app {
+    height: 100%;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    flex-direction: column;
+}
+/*iOS APP 滑动卡顿*/
+.content div {
+    /* 解决iOS页面滑动卡顿 */
+    -webkit-overflow-scrolling: touch;
+    overflow: hidden;
+    overflow-y: auto;
+    /* overflow-y: scroll; */
+}
+/*渐变背景颜色*/
+.box {
+    width: 400px;
+    height: 400px;
+    background: linear-gradient(180deg, #fad961 0%, #f76b1c 100%);
+}
+/*去除PC端浏览器右侧滚动条*/
+html {
+    -ms-overflow-style: none;
+    overflow: -moz-scrollbars-none;
+    overflow: hidden;
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+ 
+html::-webkit-scrollbar {
+    width: 0 !important;
+}
