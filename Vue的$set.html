@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Vue.$set</title>
+	<script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+	<ul>
+		<li v-for="(item,index) in arr">{{item}}</li>
+	</ul>
+	<ul>
+		<li v-for="(value,key,index) in obj">{{value}}</li>
+	</ul>
+	<button @click="add1(arr)">**1**</button><button @click="add2(obj)">**2**</button>
+</div>
+	<script>	
+	var vm = new Vue({
+		el:"#app",
+		data:{
+			arr:[1,2,3,4,5],
+			obj:{name:'hhh',sex:'man',age:11}
+		},
+		mounted(){
+			
+		},
+		methods:{
+			add1:function(obj){
+				// push一下，发现没问题
+				// this.arr.push(6)
+				// 那紧接着在通过索引改变一下数组里某个值
+				// this.arr[0] = 444
+				// 此时发现页面不会同步，要用下面这种办法
+				// 页面没有变化，此时应该使用$set
+				// 第一个参数是你要操作的数组，第二个参数为你要改变的索引，第三个参数为你要改变的值
+				// this.$set(this.arr,0,444)
+				// this.$set(this.arr,5,444)
+				// 这回发现页面成功被改变
+			},
+			add2:function(obj){
+				// 改变现有的属性值
+				// this.obj.name = 111
+				// 运行后，发现页面已成功改变
+				// 试着添加一个新属性试试
+				// this.obj.ccc = 111
+				// 发现对象没有的属性不会同步更新，要用下面这种办法
+				// 改用$set
+				// 用法和数组一样，只是第二个参数变成了键值
+				this.$set(this.obj,"ccc",111)
+			}
+		}
+	})
+	</script>
+</body>
+</html>
