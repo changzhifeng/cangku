@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue-lifecycle</title>
+	<script src="./vue.js" type="text/javascript"></script>
+</head>
+<body>
+	<div id="app">
+		<h3 id="h3">{{msg}}</h3>
+	</div>
+	<script>
+	// 创建vue实例，得到viewModel
+	let vm = new Vue({
+		el:"#app",
+		data:{
+			msg:'ok'
+		},
+		methods:{
+			show:function(){
+				console.log('show方法执行了！')
+			}
+		},
+		// 这是遇到的第一个生命周期函数，表示实例完全被创建出来之前，会执行它
+		beforeCreate(){
+			// console.log('beforeCreate执行了');
+			// console.log(this.$el)
+			// console.log(this.$data);
+			// this.show();
+			// 注意：在beforeCreate生命周期执行的时候，data和methods中的数据都还没有初始化
+		},
+		// 这是遇到的第二个生命周期函数
+		created(){
+			// console.log('created执行了');
+			// console.log(this.$el)
+			// console.log(this.$data);
+			// this.show();
+			// 注意：在created中，data和methods都已经被初始化好了
+		},
+		// 这是遇到的第三个生命周期函数，表示模板已经在内存中编译完成了，但是尚未把模板渲染到页面中
+		beforeMount(){
+			// console.log('beforeMount执行了');
+			// console.log(this.$el)
+			// console.log(this.$data);
+			// this.show();
+			// console.log(document.getElementById('h3').innerText);
+			// 在beforeMount执行的时候，页面中的元素，还没有真正替换过来，只是之前写的一些模板字符串
+		},
+		// 这是遇到的第四个生命周期函数，表示，内存中的模板，已经真实的挂载到了页面中，用户已经可以看到渲染好的页面了
+		mounted(){
+			// console.log('mounted执行了');
+			// console.log(this.$el)
+			// console.log(this.$data);
+			// this.show();
+			// console.log(document.getElementById('h3').innerText);
+			// 注意：mounted是实例创建期间的最后一个生命周期函数。当执行mounted就表示，实例已经被完全创建好了。此时如果没有其他操作的话，这个实例，就静静躺在我们内存中，一动不动。
+		}
+	})
+	</script>
+</body>
+</html>
