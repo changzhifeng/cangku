@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Vue的nextTick</title>
+	<script src="vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<span v-if="showSpan">span</span>
+		<button @click="btn">显示按钮</button>
+	</div>
+	<script>
+	var vm = new Vue({
+		el:"#app",
+		data:{
+			showSpan:false
+		},
+		methods:{
+			btn(){
+				this.showSpan = true;
+
+				console.log(document.querySelector("span"));// 没找到dom元素，返回null，主角登场
+
+				this.$nextTick(()=>{
+					// 作用大家也都看到了，就是确认dom重新渲染挂载完毕执行回调函数
+					console.log(document.querySelector("span"));
+				})	
+			}
+		}
+	})
+	</script>
+</body>
+</html>

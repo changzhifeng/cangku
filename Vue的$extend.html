@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Vue的$extend</title>
+	<script src="vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		{{msg}}
+		<div id="app1"></div>
+		<div id="app2"></div>
+	</div>
+	<script>
+		var vm = new Vue({
+			el:"#app",
+			data:{
+				msg:'吽吽吽....'
+			},
+			methods:{
+
+			}
+		})
+		// 创建构造器
+		var Profile = Vue.extend({
+		  template: '<p>{{firstName}} {{lastName}} aka {{alias}}</p>',
+		  data: function () {
+		    return {
+		      firstName: 'Walter',
+		      lastName: 'White',
+		      alias: 'Heisenberg'
+		    }
+		  }
+		})
+		// 创建 Profile 实例，并挂载到一个元素上。
+		new Profile().$mount('#app1')
+		new Profile().$mount('#app2')
+	</script>
+</body>
+</html>
