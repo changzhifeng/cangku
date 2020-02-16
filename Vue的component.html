@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue的component</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <template id="Mydemo">
+        <h1>Hello Time {{this.msg}}</h1>
+    </template>
+    <div id="app">
+        <my-list></my-list>
+        <say-hello></say-hello>
+        <account></account>
+        <account4></account4>
+    </div>
+    <script>
+    //注册全局组件
+    var list=Vue.extend({
+        template:'<h1>this is a list</h1>',
+    });
+    Vue.component("my-list",list);
+    //注册全局组件
+    Vue.component('say-hello',{
+        template:"<h2>Hello everyone</h2>",
+    });
+    //注册全局组件
+    Vue.component('account',{
+        template:"#Mydemo",
+    });
+
+    new Vue({
+        el:"#app",
+        components:{
+            account4:{
+                template:"#Mydemo",
+                data(){
+                    return {
+                        msg:'#Mydemo jahah'
+                    }
+                }
+            }
+        }
+    })
+    </script>
+</body>
+</html>
