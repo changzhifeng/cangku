@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div>
+		<h3>每天都在玩抖音，还不知道抖音是怎么赚钱的？</h3>
+		<div>
+			<h3>方式一：广告变现</h3>
+			<ul id="banList">
+				<li>广告是最直接也是最普遍的变现方式，视频达人为品牌做广告获得报酬，而品牌方依托他们的人气和影响力抵达了宣传效果。</li>
+				<li>如“多余和毛毛姐”，他的视频内容性、故事性都很强在变现方式上类似段子的植入式广告。</li>
+				<li>在他 的视频中大多都是品牌的植入，植入手法很巧妙，对视频内容几乎没有伤害，每条视频的平均点赞数量都坚持在100万以上，评论数量上万。</li>
+				<li>关于品牌方来说，这样的广告方式相比“硬广”的效果更好。</li>
+			</ul>
+			<h3>方式二：作品变现(“短视频+电商”方式)</h3>
+			<ul>
+				<li></li>
+			</ul>
+			<h3>方式三：平台签约</h3>
+			<ul>
+				<li></li>
+			</ul>
+			<h3>方式四：抖音带前线下店</h3>
+			<ul>
+				<li></li>
+			</ul>
+		</div>
+	</div>
+
+	<script>
+	var local = localStorage;
+	// local.clear();
+	
+	if(!local.getItem('news')){
+		local.setItem('news',"[]");//增加
+	}
+
+	
+
+	let banLis = document.querySelector('#banList').querySelectorAll('li')
+	for(var i = 0; i < banLis.length; i++){
+		banLis[i].onclick = function(){
+			var val = this.innerText;
+			var arr = JSON.parse(local.getItem('news'));//获取
+			arr.push(val);
+			console.log(arr);
+			local.setItem('news',JSON.stringify(arr))
+		}
+	}
+	</script>
+</body>
+</html>

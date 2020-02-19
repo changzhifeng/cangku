@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h3>收藏页</h3>
+	<ul id="uls"></ul>
+	<script>
+	let local = localStorage
+	// local.clear();
+
+	if(!local.getItem('news')){
+		local.setItem('news',"空")
+	}
+	let ul = document.querySelector("#uls")
+	let arr = JSON.parse(local.getItem('news'));
+	console.log(arr)
+	for(var i = 0; i < arr.length; i++){
+		let li = document.createElement('li')
+		li.innerText = arr[i]
+		ul.appendChild(li)
+	}
+	</script>
+</body>
+</html>
